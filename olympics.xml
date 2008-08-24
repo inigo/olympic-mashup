@@ -1,0 +1,70 @@
+<%@taglib uri="clientsidexsl.tld" prefix="csxml" %>
+<csxml:xml-stylesheet stylesheet="simpledocbook.xsl">
+<article>
+	<title>Olympic Mashup 2008</title>
+	<articleinfo>
+		<author>
+			<firstname>Inigo</firstname>
+			<surname>Surguy</surname>
+		</author>
+		<abstract>
+			<para>Various mashups of the 2008 Olympics data</para>
+		</abstract>
+	</articleinfo>
+
+<section>
+<para>
+These are various mashups of the 2008 Olympics data, created around the
+<ulink url="http://swig.networkedplanet.com/">Oxfordshire Semantic Web Interest Group</ulink>
+Olympic Mashup event. I wrote them using <ulink url="http://www.scala-lang.org/">Scala</ulink>
+and <ulink url="http://jena.sourceforge.net/">Jena</ulink>.
+</para>
+</section>
+
+<section>
+<title>
+<ulink url="http://surguy.net/olympics/olympics.html">Team GB Exhibit</ulink></title>
+<para>
+Information on the Team GB athletes, scraped from the
+<ulink url="http://www.olympics.org.uk/beijing2008/teamgb.aspx">official Team GB website</ulink>,
+converted to RDF via Jena, enriched using Scala code, and then displayed using 
+<ulink url="http://simile.mit.edu/wiki/Exhibit/">Exhibit</ulink>.
+</para>
+</section>
+
+<section>
+<title>
+<ulink url="http://surguy.net/olympics/medals.swf">Medals over time (requires Flash)</ulink></title>
+<para>
+An interactive display of when medals were won by each country, based on information
+scraped from the <ulink url="http://results.beijing2008.cn/">official medals site</ulink>,
+converted to RDF via Jena, and then displayed using Flex based on
+<ulink url="http://flare.prefuse.org/">Prefuse Flare</ulink>.
+</para>
+</section>
+
+
+<section>
+<title>Medals compared to population, GDP, etc.</title>
+<para>
+<itemizedlist>
+<listitem><ulink url="http://surguy.net/olympics/areaKm.png">Medals compared to size of country</ulink></listitem>
+<listitem><ulink url="http://surguy.net/olympics/gdpNominalPerCapita.png">Medals compared to nominal GDP per capita</ulink></listitem>
+<listitem><ulink url="http://surguy.net/olympics/hdi.png">Medals compared to Human Development Index</ulink></listitem>
+<listitem><ulink url="http://surguy.net/olympics/populationCensus.png">Medals compared to population</ulink></listitem>
+<listitem><ulink url="http://surguy.net/olympics/populationDensityKm.png">Medals compared to population density</ulink></listitem>
+</itemizedlist>
+</para>
+<para>
+	Graphs comparing medals won to other metrics for the medal-winning countries. Based on
+	information scraped from the <ulink url="http://results.beijing2008.cn/">official medals site</ulink>,
+	combined with data obtained from <ulink url="http://dbpedia.org/About">DBPedia</ulink> using
+	SPARQL queries, and then displayed using <ulink url="http://processing.org/">Processing</ulink>,
+	using code heavily based on an example by Ben Fry in 
+	<ulink url="http://benfry.com/writing/">Visualizing Data</ulink>.
+</para>
+</section>
+
+</article>
+</csxml:xml-stylesheet>
+
