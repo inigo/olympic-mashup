@@ -9,6 +9,10 @@
     <name>olympic</name>
     <description>Convert Olympic sources to RDF</description>
 
+    <properties>
+        <scala.version>2.7.1</scala.version>
+    </properties>
+
     <build>
 		<plugins>
 			<plugin>
@@ -20,6 +24,24 @@
 					<target>1.5</target>
 				</configuration>
 			</plugin>
+
+   <plugin>
+        <groupId>org.scala-tools</groupId>
+        <artifactId>maven-scala-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+              <goal>testCompile</goal>
+            </goals>
+          </execution>
+        </executions>
+	<!--
+        <configuration>
+		<mainClass>org.example.MyClass</mainClass>
+        </configuration>
+	-->
+      </plugin>
         </plugins>
     </build>
 
@@ -39,10 +61,39 @@
            <name>Scala-Tools Maven2 Repository</name>
            <url>http://scala-tools.org/repo-releases</url>
          </repository>
-
     </repositories>
+ 
+  <pluginRepositories>
+    <pluginRepository>
+      <id>scala-tools.org</id>
+      <name>Scala-Tools Maven2 Repository</name>
+      <url>http://scala-tools.org/repo-releases</url>
+    </pluginRepository>
+  </pluginRepositories>  
+
+ <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.scala-tools</groupId>
+        <artifactId>maven-scala-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </reporting>
 
     <dependencies>
+   <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-library</artifactId>
+      <version>${scala.version}</version>
+    </dependency>
+   
+<dependency>
+      <groupId>processing</groupId>
+      <artifactId>processing-core</artifactId>
+      <version>148</version>
+      <scope>system</scope>
+      <systemPath>${basedir}/lib/processing-core-148.jar</systemPath>
+</dependency>
 
         <dependency>
                 <groupId>log4j</groupId>
@@ -67,11 +118,6 @@
             <version>1.3.1</version>
         </dependency>
 
-
-
-        <!--
-        Jena and its subdependencies from here
-        -->
         <dependency>
             <groupId>com.hp.hpl.jena</groupId>
             <artifactId>jena</artifactId>
@@ -93,33 +139,6 @@
                 <artifactId>commons-io</artifactId>
                 <version>1.3.1</version>
             </dependency>
-
-            <!-- There's a transitive dependency on this from several other jars -->
-            <dependency>
-                <groupId>commons-logging</groupId>
-                <artifactId>commons-logging</artifactId>
-                <version>1.1</version>
-                <scope>runtime</scope>
-                <exclusions>
-                    <exclusion>
-                        <groupId>logkit</groupId>
-                        <artifactId>logkit</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>log4j</groupId>
-                        <artifactId>log4j</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>avalon-framework</groupId>
-                        <artifactId>avalon-framework</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>javax.servlet</groupId>
-                        <artifactId>servlet-api</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            
 
             <dependency>
                 <groupId>log4j</groupId>
